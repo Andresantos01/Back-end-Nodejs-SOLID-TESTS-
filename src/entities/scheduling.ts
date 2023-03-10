@@ -20,6 +20,10 @@ export class Scheduling {
     }
     constructor(props: SchedulingProps){
         const {endAt , startAt} = props
+        if(startAt < new Date()){
+            throw new Error('startAt must be')
+        }
+
         if(endAt <= startAt){
             throw new Error("Invalid end date");
         }
